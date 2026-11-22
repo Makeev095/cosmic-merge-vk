@@ -1,0 +1,35 @@
+{
+  "gmrId": 52008,
+  "dashboard": "https://developers.vkplay.ru/dev/games/52008/locales/ru_RU/",
+  "iframe": "https://makeev095.github.io/cosmic-merge-vk/",
+  "callback": "https://cosmic-merge-billing.pages.dev/",
+  "ru": {
+    "name": "Космический синтез",
+    "altSearch": [
+      "Космический синтез",
+      "Cosmic Merge",
+      "Kozmik Birleşim",
+      "космический синтез",
+      "rjcvbxtcrbq cbyntp"
+    ],
+    "shortTitle": "Сливай планеты в одну звезду",
+    "shortTitleLen": 28,
+    "shortDescription": "Бросай планеты в банку: две одинаковые сливаются в следующую, большую. Путь от космопыли до Солнца, уровни, комбо и бустеры. Управление касанием или мышью. Языки: русский, английский и турецкий. Прогресс сохраняется.",
+    "fullDescription": "Бросайте планеты в банку. Две одинаковые сливаются в следующую ступень: космопыль, астероид, луна, планеты и Солнце.\n\nНа каждом уровне нужно вырастить целевое тело. За слияния растёт счёт и комбо. Если банка переполняется, можно потратить монеты и расчистить верх.\n\nМонеты тратятся на встряхивание, чистку мелких тел и возрождение. Их можно заработать в игре или купить пакетами.\n\nУправление: касание или мышь. На компьютере работает и на телефоне. Языки: русский, английский, турецкий.",
+    "age": "0+",
+    "supportedLanguages": ["Русский", "Английский", "Турецкий"],
+    "support": "https://github.com/Makeev095/cosmic-merge-vk/issues"
+  },
+  "en": {
+    "name": "Cosmic Merge",
+    "altSearch": ["Cosmic Merge", "Космический синтез", "Kozmik Birleşim"],
+    "shortTitle": "Merge planets into a star",
+    "shortDescription": "Drop planets into a jar: two of the same merge into the next, bigger one. Grow from stardust to the Sun, chase combos and use boosters. Touch or mouse. Languages: Russian, English and Turkish. Progress is saved.",
+    "fullDescription": "Drop planets into a jar. Two identical bodies merge into the next stage: stardust, asteroid, moon, planets and the Sun.\n\nEach level asks you to grow a target body. Merges raise the score and combo. If the jar overflows, spend coins to clear the top.\n\nCoins buy a shake, a small-body clear and a revive. Earn them in play or buy packs.\n\nControls: touch or mouse. Languages: Russian, English, Turkish."
+  },
+  "genresHint": {
+    "main": "Казуальные",
+    "visible": ["Головоломки", "Казуальные", "Аркады"],
+    "tags": ["Головоломка", "Физика", "Казуальная"]
+  }
+}

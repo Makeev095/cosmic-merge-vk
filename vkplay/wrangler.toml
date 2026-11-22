@@ -1,0 +1,7 @@
+name = "cosmic-merge-vkplay-billing"
+main = "worker.js"
+compatibility_date = "2026-10-31"
+
+[[kv_namespaces]]
+binding = "PURCHASES"
+id = "REPLACE_AFTER_CREATE"

@@ -1,0 +1,8 @@
+dist/
+cosmic-merge.zip
+vendor/
+.DS_Store
+.wrangler
+node_modules
+.env
+
