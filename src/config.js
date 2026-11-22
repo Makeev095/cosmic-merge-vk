@@ -8,7 +8,7 @@ export const CONFIG = {
   storageKey: 'cosmic_merge_vk_save_v1',
   saveDebounceMs: 1500,
 
-  jar: { left: 70, right: 530, floor: 880, top: 250, dangerY: 285, dropY: 210, wall: 90 },
+  jar: { left: 70, right: 530, floor: 848, top: 250, dangerY: 285, dropY: 210, wall: 90 },
 
   physics: {
     gravityY: 1.2,

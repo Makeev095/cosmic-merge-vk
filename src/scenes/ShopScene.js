@@ -1,7 +1,7 @@
-import { CONFIG, DESIGN, t } from '../config.js';
-import { YandexSDK } from '../yandexSDK.js';
-import { Sfx } from '../audio.js';
-import { fitCamera, makeText, gradientText, makeButton, toast, floatText } from '../ui.js';
+import { CONFIG, DESIGN, t } from '../config.js?v=20261122e';
+import { YandexSDK } from '../yandexSDK.js?v=20261122e';
+import { Sfx } from '../audio.js?v=20261122e';
+import { fitCamera, makeText, gradientText, makeButton, toast, floatText } from '../ui.js?v=20261122e';
 
 // Магазин внутриигровых покупок. Открывается поверх меню (scene.launch), меню на паузе.
 export class ShopScene extends Phaser.Scene {
@@ -18,15 +18,15 @@ export class ShopScene extends Phaser.Scene {
     const dim = this.add.rectangle(W / 2, 500, 5000, 5000, 0x03060c, 0.78).setInteractive();
     this.add.image(W / 2, 505, 'panel').setDisplaySize(540, 780);
 
-    const title = makeText(this, W / 2, 175, t('shop'), 54, '#ffffff', { sw: 9 });
+    const title = makeText(this, W / 2, 168, t('shop'), 50, '#ffffff', { sw: 9 });
     gradientText(title, '#fff6a8', '#ff9a1f');
 
-    this.coinIcon = this.add.image(W / 2 - 60, 232, 'coin').setDisplaySize(36, 36);
-    this.coinText = makeText(this, W / 2 - 34, 232, String(YandexSDK.data.coins), 30, '#ffe27a', { ox: 0 });
+    this.coinIcon = this.add.image(W / 2 - 60, 224, 'coin').setDisplaySize(36, 36);
+    this.coinText = makeText(this, W / 2 - 34, 224, String(YandexSDK.data.coins), 30, '#ffe27a', { ox: 0 });
 
     this.info = makeText(this, W / 2, 500, t('shopLoading'), 28, '#9fb4d9', { wrap: 440 });
 
-    this.closeBtn = makeButton(this, W / 2, 855, t('close'), 'dark', () => this.close(), { w: 300, h: 70, size: 28 });
+    this.closeBtn = makeButton(this, W / 2, 848, t('close'), 'dark', () => this.close(), { w: 300, h: 66, size: 26 });
 
     this.loadCatalog();
   }

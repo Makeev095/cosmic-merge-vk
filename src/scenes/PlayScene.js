@@ -1,10 +1,10 @@
-import { CONFIG, DESIGN, TIERS, t, tierName, targetTierForLevel } from '../config.js';
-import { YandexSDK } from '../yandexSDK.js';
-import { Sfx } from '../audio.js';
+import { CONFIG, DESIGN, TIERS, t, tierName, targetTierForLevel } from '../config.js?v=20261122e';
+import { YandexSDK } from '../yandexSDK.js?v=20261122e';
+import { Sfx } from '../audio.js?v=20261122e';
 import {
   fitCamera, addBackground, makeText, gradientText, makeButton, makeRoundButton,
   burst, shock, floatText, toast
-} from '../ui.js';
+} from '../ui.js?v=20261122e';
 
 const J = CONFIG.jar;
 const B = CONFIG.balance;
@@ -139,23 +139,25 @@ export class PlayScene extends Phaser.Scene {
     makeText(this, W - 28, 112, t('next'), 18, '#8fb4ff', { ox: 1 }).setDepth(10);
     this.nextImg = this.add.image(W - 56, 160, 'p0').setDepth(10);
 
-    // цепочка эволюции
+    // цепочка между дном банки и кнопками — без наезда на пол и на «Встряхнуть»/«Чистка»
     this.chain = [];
     for (let i = 0; i < TIERS.length; i++) {
-      const img = this.add.image(45 + i * 51, 925, 'p' + i).setDisplaySize(34, 34).setDepth(10);
+      const img = this.add.image(45 + i * 51, 920, 'p' + i).setDisplaySize(28, 28).setDepth(10);
       img.setTint(0x3a3f55).setAlpha(0.55);
       this.chain.push(img);
     }
     this.markReached(0, true);
-    const tr = this.add.image(45 + this.target * 51, 925, 'ring').setTint(0xffd54f)
-      .setBlendMode(Phaser.BlendModes.ADD).setDisplaySize(50, 50).setDepth(11);
+    const tr = this.add.image(45 + this.target * 51, 920, 'ring').setTint(0xffd54f)
+      .setBlendMode(Phaser.BlendModes.ADD).setDisplaySize(40, 40).setDepth(11);
     this.tweens.add({ targets: tr, alpha: 0.25, duration: 650, yoyo: true, repeat: -1 });
 
-    // бустер
-    this.shakeBtn = makeButton(this, 180, 972, `${t('shake')} ${B.shakeCost}`, 'blue', () => this.useShake(),
-      { w: 250, h: 54, size: 20, icon: 'coin' }).setDepth(10);
-    this.purgeBtn = makeButton(this, 420, 972, `${t('purge')} ${B.purgeCost}`, 'red', () => this.usePurge(),
-      { w: 250, h: 54, size: 20, icon: 'coin' }).setDepth(10);
+    // две колонки с зазором: иначе длинные RU/TR подписи с иконкой монеты наползают друг на друга
+    const side = 16, gap = 14;
+    const bw = (W - side * 2 - gap) / 2;
+    this.shakeBtn = makeButton(this, side + bw / 2, 974, `${t('shake')} ${B.shakeCost}`, 'blue', () => this.useShake(),
+      { w: bw, h: 48, size: 16, icon: 'coin' }).setDepth(10);
+    this.purgeBtn = makeButton(this, W - side - bw / 2, 974, `${t('purge')} ${B.purgeCost}`, 'red', () => this.usePurge(),
+      { w: bw, h: 48, size: 16, icon: 'coin' }).setDepth(10);
   }
 
   // ------------------------------------------------------------------ вспомогательное
@@ -463,12 +465,12 @@ export class PlayScene extends Phaser.Scene {
   showRevive() {
     const W = DESIGN.W;
     const c = this.buildPanel(520, 560, 500);
-    const title = makeText(this, W / 2, 285, t('reviveTitle'), 38, '#ff6b6b', { sw: 7, wrap: 460 });
-    const icon = this.add.image(W / 2, 395, 'p' + Math.max(this.roundMax, 1)).setDisplaySize(110, 110);
+    const title = makeText(this, W / 2, 278, t('reviveTitle'), 32, '#ff6b6b', { sw: 7, wrap: 440 });
+    const icon = this.add.image(W / 2, 385, 'p' + Math.max(this.roundMax, 1)).setDisplaySize(100, 100);
     this.tweens.add({ targets: icon, angle: 360, duration: 9000, repeat: -1 });
-    const txt = makeText(this, W / 2, 490, t('reviveText', { n: B.reviveCost }), 24, '#cfe0ff', { wrap: 430 });
-    const yes = makeButton(this, W / 2, 590, t('revive'), 'green', () => this.onRevive(), { w: 380, h: 92, size: 38, icon: 'coin', pulse: true });
-    const no = makeButton(this, W / 2, 690, t('noThanks'), 'dark', () => { this.closePanel(); this.showResults(false); }, { w: 260, h: 60, size: 24 });
+    const txt = makeText(this, W / 2, 478, t('reviveText', { n: B.reviveCost }), 22, '#cfe0ff', { wrap: 420 });
+    const yes = makeButton(this, W / 2, 585, t('revive'), 'green', () => this.onRevive(), { w: 400, h: 84, size: 28, icon: 'coin', pulse: true });
+    const no = makeButton(this, W / 2, 678, t('noThanks'), 'dark', () => { this.closePanel(); this.showResults(false); }, { w: 280, h: 58, size: 22 });
     c.add([title, icon, txt, yes, no]);
   }
 
@@ -530,11 +532,11 @@ export class PlayScene extends Phaser.Scene {
     this.earnedTx = makeText(this, W / 2 - 46, 590, '+0', 42, '#ffe27a', { ox: 0 });
     this.countEarned(0, this.earned);
 
-    this.doubleBtn = makeButton(this, W / 2, 665, t('double', { n: B.doubleCost }), 'gold', () => this.onDouble(), { w: 380, h: 80, size: 34, icon: 'coin' });
+    this.doubleBtn = makeButton(this, W / 2, 660, t('double', { n: B.doubleCost }), 'gold', () => this.onDouble(), { w: 380, h: 74, size: 28, icon: 'coin' });
     if (this.earned <= 0 || d.coins < B.doubleCost) this.doubleBtn.setEnabled(false);
-    const primary = makeButton(this, W / 2, 760, win ? t('nextLevel') : t('retry'), 'green',
-      () => this.leave(() => this.scene.restart({ level: win ? d.level : this.level })), { w: 420, h: 88, size: win ? 30 : 40, pulse: true });
-    const menu = makeButton(this, W / 2, 840, t('menu'), 'dark', () => this.leave(() => this.scene.start('MenuScene')), { w: 240, h: 56, size: 24 });
+    const primary = makeButton(this, W / 2, 748, win ? t('nextLevel') : t('retry'), 'green',
+      () => this.leave(() => this.scene.restart({ level: win ? d.level : this.level })), { w: 420, h: 82, size: 28, pulse: true });
+    const menu = makeButton(this, W / 2, 828, t('menu'), 'dark', () => this.leave(() => this.scene.start('MenuScene')), { w: 240, h: 54, size: 22 });
     c.add([title, icon, nm, lbl, scoreTx, rec, coin, this.earnedTx, this.doubleBtn, primary, menu]);
     if (win) Sfx.play(this, 'coin');
   }

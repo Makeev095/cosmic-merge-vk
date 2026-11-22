@@ -1,7 +1,7 @@
-import { CONFIG, DESIGN, t, nextLang, langFlag } from '../config.js';
-import { YandexSDK } from '../yandexSDK.js';
-import { Sfx } from '../audio.js';
-import { fitCamera, addBackground, makeText, gradientText, makeButton, makeRoundButton, floatText, toast } from '../ui.js';
+import { CONFIG, DESIGN, t, nextLang, langFlag } from '../config.js?v=20261122e';
+import { YandexSDK } from '../yandexSDK.js?v=20261122e';
+import { Sfx } from '../audio.js?v=20261122e';
+import { fitCamera, addBackground, makeText, gradientText, makeButton, makeRoundButton, floatText, toast } from '../ui.js?v=20261122e';
 
 export class MenuScene extends Phaser.Scene {
   constructor() { super('MenuScene'); }
@@ -44,14 +44,14 @@ export class MenuScene extends Phaser.Scene {
     makeText(this, W / 2, 640, `${t('level')} ${d.level}   •   ${t('best')}: ${d.best}`, 26, '#cfe0ff');
 
     // --- кнопки ---
-    this.playBtn = makeButton(this, W / 2, 735, t('play'), 'green', () => this.startGame(), { w: 400, h: 112, size: 52, pulse: true });
-    this.freeBtn = makeButton(this, W / 2, 855, t('freeCoins', { n: CONFIG.balance.freeCoinsReward }), 'gold',
-      () => this.claimFreeCoins(), { w: 400, h: 84, size: 32, icon: 'coin' });
+    this.playBtn = makeButton(this, W / 2, 728, t('play'), 'green', () => this.startGame(), { w: 400, h: 104, size: 48, pulse: true });
+    this.freeBtn = makeButton(this, W / 2, 840, t('freeCoins', { n: CONFIG.balance.freeCoinsReward }), 'gold',
+      () => this.claimFreeCoins(), { w: 400, h: 78, size: 30, icon: 'coin' });
 
-    this.shopBtn = makeButton(this, W / 2, 940, t('shop'), 'blue', () => this.openShop(), { w: 300, h: 70, size: 28, icon: 'coin' });
+    this.shopBtn = makeButton(this, W / 2, 932, t('shop'), 'blue', () => this.openShop(), { w: 280, h: 66, size: 26, icon: 'coin' });
 
-    this.langBtn = makeButton(this, 70, 945, langFlag(), 'dark', () => this.cycleLang(), { w: 88, h: 56, size: 22 });
-    this.soundBtn = makeRoundButton(this, W - 55, 945, d.sound ? 'ic_snd_on' : 'ic_snd_off', () => {
+    this.langBtn = makeButton(this, 70, 938, langFlag(), 'dark', () => this.cycleLang(), { w: 88, h: 56, size: 22 });
+    this.soundBtn = makeRoundButton(this, W - 55, 938, d.sound ? 'ic_snd_on' : 'ic_snd_off', () => {
       YandexSDK.setSound(!YandexSDK.data.sound);
       this.soundBtn.setIcon(YandexSDK.data.sound ? 'ic_snd_on' : 'ic_snd_off');
     });

@@ -28,8 +28,10 @@
     "fullDescription": "Drop planets into a jar. Two identical bodies merge into the next stage: stardust, asteroid, moon, planets and the Sun.\n\nEach level asks you to grow a target body. Merges raise the score and combo. If the jar overflows, spend coins to clear the top.\n\nCoins buy a shake, a small-body clear and a revive. Earn them in play or buy packs.\n\nControls: touch or mouse. Languages: Russian, English, Turkish."
   },
   "genresHint": {
-    "main": "Казуальные",
-    "visible": ["Головоломки", "Казуальные", "Аркады"],
-    "tags": ["Головоломка", "Физика", "Казуальная"]
+    "main": "Головоломка",
+    "visible": ["Пазл", "Детская", "Аркада"],
+    "tags": ["Головоломка", "Аркада", "Гиперказуалка", "Семейная"],
+    "age": "0+",
+    "marking": "Внутриигровые транзакции"
   }
 }

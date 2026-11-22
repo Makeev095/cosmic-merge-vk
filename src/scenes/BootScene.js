@@ -1,7 +1,7 @@
-import { DESIGN, t } from '../config.js';
-import { YandexSDK } from '../yandexSDK.js';
-import { Sfx } from '../audio.js';
-import { fitCamera, makeText, buildTextureJobs, gradientText } from '../ui.js';
+import { DESIGN, t } from '../config.js?v=20261122e';
+import { YandexSDK } from '../yandexSDK.js?v=20261122e';
+import { Sfx } from '../audio.js?v=20261122e';
+import { fitCamera, makeText, buildTextureJobs, gradientText } from '../ui.js?v=20261122e';
 
 const nextFrame = () => new Promise((r) => setTimeout(r, 0));
 
@@ -22,7 +22,8 @@ export class BootScene extends Phaser.Scene {
     this.logo = this.add.graphics();
     this.bar = this.add.graphics();
 
-    this.title = makeText(this, W / 2, 230, 'COSMIC MERGE', 54, '#ffffff', { sw: 8 });
+    makeText(this, W / 2, 200, t('title1'), 36, '#ffffff', { sw: 7 });
+    this.title = makeText(this, W / 2, 250, t('title2'), 56, '#ffffff', { sw: 9 });
     gradientText(this.title, '#fff6a8', '#ff9a3c');
     this.status = makeText(this, W / 2, 640, t('loading') + '…', 26, '#9fb4d9');
     this.percent = makeText(this, W / 2, 595, '0%', 30, '#ffffff');
