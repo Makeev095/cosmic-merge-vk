@@ -1,7 +1,7 @@
-import { DESIGN, t } from '../config.js?v=20261122e';
-import { YandexSDK } from '../yandexSDK.js?v=20261122e';
-import { Sfx } from '../audio.js?v=20261122e';
-import { fitCamera, makeText, buildTextureJobs, gradientText } from '../ui.js?v=20261122e';
+import { DESIGN, t } from '../config.js?v=20261122f';
+import { YandexSDK } from '../yandexSDK.js?v=20261122f';
+import { Sfx } from '../audio.js?v=20261122f';
+import { fitCamera, makeText, buildTextureJobs, gradientText } from '../ui.js?v=20261122f';
 
 const nextFrame = () => new Promise((r) => setTimeout(r, 0));
 

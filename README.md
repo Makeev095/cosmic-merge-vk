@@ -8,7 +8,7 @@
 
 - Игра в iframe: https://makeev095.github.io/cosmic-merge-vk/
 - Кабинет: https://developers.vkplay.ru/dev/games/52008/locales/ru_RU/
-- Биллинг и сейв: https://cosmic-merge-billing.pages.dev/
+- Биллинг и сейв: https://cosmic-merge-vkplay-billing.makey-studio.workers.dev/
 
 ## Локально
 

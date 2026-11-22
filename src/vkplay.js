@@ -4,7 +4,7 @@
 // функция сама не попадает — подключаем ту же библиотеку iframe-api и делаем handshake.
 
 export const VKPLAY_APP_ID = 52008;
-export const VKPLAY_SAVE_URL = 'https://cosmic-merge-billing.pages.dev/save';
+export const VKPLAY_SAVE_URL = 'https://cosmic-merge-vkplay-billing.makey-studio.workers.dev/save';
 
 export const VKPLAY_PRICES = {
   coins_500:  { RUB: 99,  USD: 1.26, EUR: 1.12, itemdef: 1, ru: '500 монет',  en: '500 coins',  tr: '500 jeton' },
@@ -54,7 +54,7 @@ export async function loadIframeApiScript() {
   if (typeof window.iframeApi === 'function') return true;
   return new Promise((resolve) => {
     const s = document.createElement('script');
-    s.src = new URL('./lib/iframe-api.js', import.meta.url).href.split('?')[0] + '?v=20261122e';
+    s.src = new URL('./lib/iframe-api.js', import.meta.url).href.split('?')[0] + '?v=20261122f';
     s.onload = () => resolve(typeof window.iframeApi === 'function');
     s.onerror = () => resolve(false);
     document.head.appendChild(s);

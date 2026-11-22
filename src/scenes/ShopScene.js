@@ -1,7 +1,7 @@
-import { CONFIG, DESIGN, t } from '../config.js?v=20261122e';
-import { YandexSDK } from '../yandexSDK.js?v=20261122e';
-import { Sfx } from '../audio.js?v=20261122e';
-import { fitCamera, makeText, gradientText, makeButton, toast, floatText } from '../ui.js?v=20261122e';
+import { CONFIG, DESIGN, t } from '../config.js?v=20261122f';
+import { YandexSDK } from '../yandexSDK.js?v=20261122f';
+import { Sfx } from '../audio.js?v=20261122f';
+import { fitCamera, makeText, gradientText, makeButton, toast, floatText } from '../ui.js?v=20261122f';
 
 // Магазин внутриигровых покупок. Открывается поверх меню (scene.launch), меню на паузе.
 export class ShopScene extends Phaser.Scene {

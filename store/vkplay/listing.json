@@ -2,7 +2,7 @@
   "gmrId": 52008,
   "dashboard": "https://developers.vkplay.ru/dev/games/52008/locales/ru_RU/",
   "iframe": "https://makeev095.github.io/cosmic-merge-vk/",
-  "callback": "https://cosmic-merge-billing.pages.dev/",
+  "callback": "https://cosmic-merge-vkplay-billing.makey-studio.workers.dev/",
   "ru": {
     "name": "Космический синтез",
     "altSearch": [
