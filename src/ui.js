@@ -1,7 +1,7 @@
 // Общие UI-хелперы: процедурные текстуры, текст, кнопки, фон, частицы, адаптивная камера.
 
-import { DESIGN, TIERS } from './config.js?v=20261122g';
-import { Sfx } from './audio.js?v=20261122g';
+import { DESIGN, TIERS } from './config.js?v=20261122h';
+import { Sfx } from './audio.js?v=20261122h';
 
 export const FONT = '"Trebuchet MS", "Segoe UI", Arial, sans-serif';
 

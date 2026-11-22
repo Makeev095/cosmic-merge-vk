@@ -1,11 +1,11 @@
 // Платформенный слой VK Play: сохранения, покупки, без рекламы.
 // Имя файла оставлено как в яндекс-версии, чтобы сцены импортировали тот же путь.
 
-import { CONFIG, LANGS, setLang } from './config.js?v=20261122g';
+import { CONFIG, LANGS, setLang } from './config.js?v=20261122h';
 import {
   currencyOf, ensureUser, handshake, inIframe, isVkPlay, loadCloudSave, looksLikeVkPlay,
   pay, userUid, waitForIframeApi, waitForUid, writeCloudSave, VKPLAY_PRICES, VKPLAY_SAVE_URL
-} from './vkplay.js?v=20261122g';
+} from './vkplay.js?v=20261122h';
 
 export const defaultData = () => ({
   v: 1,

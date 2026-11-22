@@ -1,10 +1,10 @@
-import { CONFIG, DESIGN, TIERS, t, tierName, targetTierForLevel } from '../config.js?v=20261122g';
-import { YandexSDK } from '../yandexSDK.js?v=20261122g';
-import { Sfx } from '../audio.js?v=20261122g';
+import { CONFIG, DESIGN, TIERS, t, tierName, targetTierForLevel } from '../config.js?v=20261122h';
+import { YandexSDK } from '../yandexSDK.js?v=20261122h';
+import { Sfx } from '../audio.js?v=20261122h';
 import {
   fitCamera, addBackground, makeText, gradientText, makeButton, makeRoundButton,
   burst, shock, floatText, toast
-} from '../ui.js?v=20261122g';
+} from '../ui.js?v=20261122h';
 
 const J = CONFIG.jar;
 const B = CONFIG.balance;

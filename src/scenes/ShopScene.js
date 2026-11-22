@@ -1,7 +1,7 @@
-import { CONFIG, DESIGN, t } from '../config.js?v=20261122g';
-import { YandexSDK } from '../yandexSDK.js?v=20261122g';
-import { Sfx } from '../audio.js?v=20261122g';
-import { fitCamera, makeText, gradientText, makeButton, toast, floatText } from '../ui.js?v=20261122g';
+import { CONFIG, DESIGN, t } from '../config.js?v=20261122h';
+import { YandexSDK } from '../yandexSDK.js?v=20261122h';
+import { Sfx } from '../audio.js?v=20261122h';
+import { fitCamera, makeText, gradientText, makeButton, toast, floatText } from '../ui.js?v=20261122h';
 
 // Магазин внутриигровых покупок. Открывается поверх меню (scene.launch), меню на паузе.
 export class ShopScene extends Phaser.Scene {
@@ -15,7 +15,10 @@ export class ShopScene extends Phaser.Scene {
     this.rows = [];
     this.buying = false;
 
-    const dim = this.add.rectangle(W / 2, 500, 5000, 5000, 0x03060c, 0.78).setInteractive();
+    const parent = this.scene.get(this.parentKey);
+    if (parent) parent.scene.setVisible(false);
+
+    const dim = this.add.rectangle(W / 2, 500, 5000, 5000, 0x03060c, 0.92).setInteractive();
     this.add.image(W / 2, 505, 'panel').setDisplaySize(540, 780);
 
     const title = makeText(this, W / 2, 168, t('shop'), 50, '#ffffff', { sw: 9 });
@@ -98,6 +101,7 @@ export class ShopScene extends Phaser.Scene {
   close() {
     if (this.buying) return;
     const parent = this.scene.get(this.parentKey);
+    if (parent) parent.scene.setVisible(true);
     this.scene.stop();
     this.scene.resume(this.parentKey);
     if (parent && parent.onShopClosed) parent.onShopClosed();
