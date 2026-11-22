@@ -1,10 +1,10 @@
-import { CONFIG, DESIGN, TIERS, t, tierName, targetTierForLevel } from '../config.js?v=20261122f';
-import { YandexSDK } from '../yandexSDK.js?v=20261122f';
-import { Sfx } from '../audio.js?v=20261122f';
+import { CONFIG, DESIGN, TIERS, t, tierName, targetTierForLevel } from '../config.js?v=20261122g';
+import { YandexSDK } from '../yandexSDK.js?v=20261122g';
+import { Sfx } from '../audio.js?v=20261122g';
 import {
   fitCamera, addBackground, makeText, gradientText, makeButton, makeRoundButton,
   burst, shock, floatText, toast
-} from '../ui.js?v=20261122f';
+} from '../ui.js?v=20261122g';
 
 const J = CONFIG.jar;
 const B = CONFIG.balance;
@@ -139,25 +139,23 @@ export class PlayScene extends Phaser.Scene {
     makeText(this, W - 28, 112, t('next'), 18, '#8fb4ff', { ox: 1 }).setDepth(10);
     this.nextImg = this.add.image(W - 56, 160, 'p0').setDepth(10);
 
-    // цепочка между дном банки и кнопками — без наезда на пол и на «Встряхнуть»/«Чистка»
+    // цепочка над кнопками; сами кнопки уже, с широким зазором по центру
     this.chain = [];
     for (let i = 0; i < TIERS.length; i++) {
-      const img = this.add.image(45 + i * 51, 920, 'p' + i).setDisplaySize(28, 28).setDepth(10);
+      const img = this.add.image(45 + i * 51, 896, 'p' + i).setDisplaySize(26, 26).setDepth(10);
       img.setTint(0x3a3f55).setAlpha(0.55);
       this.chain.push(img);
     }
     this.markReached(0, true);
-    const tr = this.add.image(45 + this.target * 51, 920, 'ring').setTint(0xffd54f)
-      .setBlendMode(Phaser.BlendModes.ADD).setDisplaySize(40, 40).setDepth(11);
+    const tr = this.add.image(45 + this.target * 51, 896, 'ring').setTint(0xffd54f)
+      .setBlendMode(Phaser.BlendModes.ADD).setDisplaySize(36, 36).setDepth(11);
     this.tweens.add({ targets: tr, alpha: 0.25, duration: 650, yoyo: true, repeat: -1 });
 
-    // две колонки с зазором: иначе длинные RU/TR подписи с иконкой монеты наползают друг на друга
-    const side = 16, gap = 14;
-    const bw = (W - side * 2 - gap) / 2;
-    this.shakeBtn = makeButton(this, side + bw / 2, 974, `${t('shake')} ${B.shakeCost}`, 'blue', () => this.useShake(),
-      { w: bw, h: 48, size: 16, icon: 'coin' }).setDepth(10);
-    this.purgeBtn = makeButton(this, W - side - bw / 2, 974, `${t('purge')} ${B.purgeCost}`, 'red', () => this.usePurge(),
-      { w: bw, h: 48, size: 16, icon: 'coin' }).setDepth(10);
+    const bw = 248, side = 18;
+    this.shakeBtn = makeButton(this, side + bw / 2, 968, `${t('shake')} ${B.shakeCost}`, 'blue', () => this.useShake(),
+      { w: bw, h: 50, size: 15, icon: 'coin' }).setDepth(10);
+    this.purgeBtn = makeButton(this, W - side - bw / 2, 968, `${t('purge')} ${B.purgeCost}`, 'red', () => this.usePurge(),
+      { w: bw, h: 50, size: 15, icon: 'coin' }).setDepth(10);
   }
 
   // ------------------------------------------------------------------ вспомогательное
@@ -449,7 +447,7 @@ export class PlayScene extends Phaser.Scene {
   // ------------------------------------------------------------------ панели
   buildPanel(w, h, cy) {
     const c = this.add.container(0, 0).setDepth(100);
-    const dim = this.add.rectangle(DESIGN.W / 2, DESIGN.H / 2, 5000, 5000, 0x050810, 0.74).setInteractive();
+    const dim = this.add.rectangle(DESIGN.W / 2, DESIGN.H / 2, 5000, 5000, 0x050810, 0.82).setInteractive();
     const img = this.add.image(DESIGN.W / 2, cy, 'panel').setDisplaySize(w, h);
     c.add([dim, img]);
     c.setAlpha(0);
@@ -463,6 +461,7 @@ export class PlayScene extends Phaser.Scene {
   }
 
   showRevive() {
+    if (this.hint) { this.hint.destroy(); this.hint = null; }
     const W = DESIGN.W;
     const c = this.buildPanel(520, 560, 500);
     const title = makeText(this, W / 2, 278, t('reviveTitle'), 32, '#ff6b6b', { sw: 7, wrap: 440 });

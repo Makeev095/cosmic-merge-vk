@@ -54,7 +54,7 @@ export async function loadIframeApiScript() {
   if (typeof window.iframeApi === 'function') return true;
   return new Promise((resolve) => {
     const s = document.createElement('script');
-    s.src = new URL('./lib/iframe-api.js', import.meta.url).href.split('?')[0] + '?v=20261122f';
+    s.src = new URL('./lib/iframe-api.js', import.meta.url).href.split('?')[0] + '?v=20261122g';
     s.onload = () => resolve(typeof window.iframeApi === 'function');
     s.onerror = () => resolve(false);
     document.head.appendChild(s);
